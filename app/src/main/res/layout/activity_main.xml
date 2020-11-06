@@ -24,7 +24,7 @@
             android:textSize="25sp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_SignIn"
+            android:id="@+id/btn_SignIn_Page"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginLeft="30dp"
@@ -41,7 +41,7 @@
             app:cornerRadius="10dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_SignUp"
+            android:id="@+id/btn_SignUp_Page"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginLeft="30dp"

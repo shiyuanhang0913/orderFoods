@@ -11,30 +11,28 @@ import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity{
 
-    private MaterialButton SignIn, SignUp;
+    private MaterialButton SignInPage, SignUpPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SignIn = findViewById(R.id.btn_SignIn);
-        SignUp = findViewById(R.id.btn_SignUp);
+        SignInPage = findViewById(R.id.btn_SignIn_Page);
+        SignUpPage = findViewById(R.id.btn_SignUp_Page);
     }
 
     public void onClick(View view) {
 
-        if(view == SignIn){
-            //Intent intent = new Intent(this, AnotherActivity.class);
-            //intent.putExtra("Name", "Computer");
+        if(view == SignInPage){
+            Intent intent = new Intent(this, SignInActivity.class);
             Toast.makeText(getApplicationContext(),"SignIn",Toast.LENGTH_SHORT).show();
-            //startActivity(intent);
+            startActivity(intent);
 
-        }else if(view == SignUp){
-            //Intent intent = new Intent(this, AnotherActivity.class);
-            //intent.putExtra("Name", "Player");
+        }else if(view == SignUpPage){
+            Intent intent = new Intent(this, SignUpActivity.class);
             Toast.makeText(getApplicationContext(),"SignUp",Toast.LENGTH_SHORT).show();
-            //startActivity(intent);
+            startActivity(intent);
         }
 
     }

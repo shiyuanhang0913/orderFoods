@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">orderFoods</string>
+    <string name="phone">phone</string>
+    <string name="password">password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="or">or</string>
+    <string name="don_t_have_a_account_sign_up">Don\'t have a account? Sign Up</string>
+    <string name="delete">Delete Record</string>
 </resources>
