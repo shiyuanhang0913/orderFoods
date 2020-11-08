@@ -34,7 +34,7 @@ public class DataManager {
         db = helper.getWritableDatabase();
     }
 
-    public void SignUp(String phone, String password){
+    public void SignUp(int phone, String password){
         // Add all the details to the table
         String query = "INSERT INTO " + TABLE_P_AND_P + " (" +
                 TABLE_ROW_PHONE + ", " + TABLE_ROW_PASSWORD + ") " + "VALUES (" +
@@ -51,7 +51,7 @@ public class DataManager {
     }
 
     // Find a specific record
-    public Cursor searchPhone(String phone) {
+    public Cursor searchPhone(int phone) {
         String query = "SELECT " +
                 TABLE_ROW_ID + ", " +
                 TABLE_ROW_PHONE +
@@ -62,11 +62,11 @@ public class DataManager {
         return c;
     }
 
-    public boolean checkUser(String phone, String password) {
+    public boolean checkUser(int phone, String password) {
         String[] column = {TABLE_ROW_ID};
 
         String selection = TABLE_ROW_PHONE + " =?" + " AND " + TABLE_ROW_PASSWORD + " =?";
-        String[] selectionArgs = {phone, password};
+        String[] selectionArgs = {String.valueOf(phone), password};
 
         Cursor cursor = db.query(TABLE_P_AND_P, column, selection, selectionArgs, null, null, null);
         int cursorcount = cursor.getCount();

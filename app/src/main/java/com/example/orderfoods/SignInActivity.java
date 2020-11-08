@@ -32,10 +32,10 @@ public class SignInActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String PN = phone.getText().toString();
+                int PN = Integer.parseInt(phone.getText().toString());
                 String PASS = password.getText().toString();
 
-                if (PN.equals("") || PASS.equals("")) {
+                if (Integer.toString(PN).equals("") || PASS.equals("")) {
                     Toast.makeText(SignInActivity.this, "Please enter the all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     Boolean checkuserpass = dm.checkUser(PN, PASS);

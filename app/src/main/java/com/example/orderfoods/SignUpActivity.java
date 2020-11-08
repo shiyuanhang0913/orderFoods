@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -36,7 +37,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUpClicked(View view){
-        dm.SignUp(phone.getText().toString(),password.getText().toString());
+        dm.SignUp(Integer.parseInt(phone.getText().toString()),password.getText().toString());
+        Toast.makeText(this, "Sign up successfully", Toast.LENGTH_SHORT).show();
     }
 
     public void selectAllClicked(View view){
