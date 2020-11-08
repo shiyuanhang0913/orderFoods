@@ -12,7 +12,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText phone;
     private EditText password;
-    private EditText delete;
 
     // This is our DataManager instance
     private DataManager dm;
@@ -26,7 +25,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         phone = findViewById(R.id.edit_phone);
         password = findViewById(R.id.edit_password);
-        delete = findViewById(R.id.edit_password);
     }
 
     // Output the cursor contents to the log
@@ -39,10 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void signUpClicked(View view){
         dm.SignUp(phone.getText().toString(),password.getText().toString());
-    }
-
-    public void deleteClicked(View view){
-        dm.delete(delete.getText().toString());
     }
 
     public void selectAllClicked(View view){

@@ -44,23 +44,6 @@ public class DataManager {
         db.execSQL(query);
     }
 
-    // Delete a record
-    public void delete(String phone){
-        //Delete the details from the table if already exists
-        //String query = "DELETE FROM " + TABLE_P_AND_P + " WHERE " + TABLE_ROW_PHONE + " = '" + phone + "';";
-        //Log.i("delete() = ", query);
-        //db.execSQL(query);
-        Cursor c = searchPhone(phone);
-        if(c.getCount()==0){
-            Log.i("info", c.getCount()+"");
-            Log.i("info", "Phone is not in database");
-        }else{
-            String query = "DELETE FROM " + TABLE_P_AND_P + " WHERE " + TABLE_ROW_PHONE + " = '" + phone + "';";
-            Log.i("delete() = ", query);
-            db.execSQL(query);
-        }
-    }
-
     // Get all the records
     public Cursor selectAll() {
         Cursor c = db.rawQuery("SELECT *" +" from " + TABLE_P_AND_P, null);
@@ -79,9 +62,16 @@ public class DataManager {
         return c;
     }
 
-    public Boolean checkPhonePassword(String phone, String password) {
-        Cursor cursor = db.rawQuery("SELECT * from TABLE_P_AND_P WHERE phone = ? and password = ?", new String[] {phone, password});
-        if (cursor.getCount() > 0) {
+    public boolean checkUser(String phone, String password) {
+        String[] column = {TABLE_ROW_ID};
+
+        String selection = TABLE_ROW_PHONE + " =?" + " AND " + TABLE_ROW_PASSWORD + " =?";
+        String[] selectionArgs = {phone, password};
+
+        Cursor cursor = db.query(TABLE_P_AND_P, column, selection, selectionArgs, null, null, null);
+        int cursorcount = cursor.getCount();
+        db.close();
+        if (cursorcount > 0) {
             return true;
         } else {
             return false;
